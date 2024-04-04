@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <header className="w-full">
-        <div className=" bg-black flex justify-around items-center h-20">
+        <div className=" flex justify-around items-center h-24 border-2 border-zinc-100">
           <Link href="/">
             <img
               src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
