@@ -29,10 +29,16 @@ export default function login() {
           <div>OR</div>
           <form action="/users/sign_in">
             <div>
-              <input type="email" />
+              <input
+                type="email"
+                className="border-2 border-zinc-200 rounded-lg"
+              />
             </div>
             <div>
-              <input type="password" />
+              <input
+                type="password"
+                className="border-2 border-zinc-200 rounded-lg"
+              />
             </div>
             <div>
               <input type="checkbox" />
@@ -46,3 +52,17 @@ export default function login() {
     </main>
   );
 }
+
+// export async function getStaticProps(ctx) {
+//   const response = await fetch("http://localhost:3002/users");
+//   const data = await response.json();
+
+//   console.log("users");
+//   return {
+//     props: {
+//       username: data.username,
+//       password: data.password,
+//     },
+//     revalidate: 20,
+//   };
+// }

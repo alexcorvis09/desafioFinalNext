@@ -1,10 +1,14 @@
+import Posts from "@/components/posts";
+import { emojiButtons } from "@/constants/sideList";
+import SideButton from "@/sideButton";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function Home(props) {
   return (
     <main>
-      <header className="w-full">
-        <div className=" flex justify-around items-center h-24 border-2 border-zinc-100">
+      <header>
+        <div className="bg-white flex justify-around items-center h-24 border-2 border-zinc-300 w-full">
           <Link href="/">
             <img
               src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
@@ -36,6 +40,70 @@ export default function Home() {
           </div>
         </div>
       </header>
+      <body className=" bg-zinc-100 min-h-fit w-full">
+        <div className="grid grid-cols-3 justify-between p-12">
+          <aside className="w-[240px] h-[10469px]">
+            <div className="p-4 bg-white border-1 border-zinc-100 h-fit rounded-lg text-[15px]">
+              <h2 className="font-bold gap-40">
+                DEV Community is a community of 1,357,511 amazing developers
+              </h2>
+              <p>
+                Were a place where coders share, stay up-to-date and grow their
+                careers.
+              </p>
+              <div className="grid grid-rows-2 p-4">
+                <button className="text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white">
+                  Create Account
+                </button>
+                <button className="border-white hover:bg-blue-600/40 hover:border-3 hover: border-blue-600/40 rounded-lg place-content-center">
+                  Login
+                </button>
+              </div>
+            </div>
+            <div className="">
+              <div className="">
+                {emojiButtons.map((emojiButton, index) => {
+                  return (
+                    <SideButton
+                      key={`emojiButton-${index}`}
+                      emoji={emojiButton.emoji}
+                      title={emojiButton.title}
+                      link={emojiButton.link}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+            <div className="p-2 font-bold">Other</div>
+          </aside>
+          <div className="flex justify-center">
+            <section>
+              {props.posts.map((post, index) => {
+                return (
+                  <Posts
+                    key={`post ${post.title}`}
+                    title={post.title}
+                    message={post.message}
+                  />
+                );
+              })}
+            </section>
+          </div>
+          <div className="flex justify-center">Sidebar2</div>
+        </div>
+      </body>
     </main>
   );
+}
+
+export async function getStaticProps(ctx) {
+  const response = await fetch("http://localhost:3002/posts");
+  const data = await response.json();
+
+  return {
+    props: {
+      posts: data.data,
+    },
+    revalidate: 60 * 60,
+  };
 }
