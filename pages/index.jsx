@@ -4,7 +4,14 @@ import SideButton from "@/sideButton";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Home(props) {
+export default function Home() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3002/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data.data));
+  }, []);
   return (
     <main>
       <header>
@@ -78,12 +85,13 @@ export default function Home(props) {
           </aside>
           <div className="flex justify-center">
             <section>
-              {props.posts.map((post, index) => {
+              {posts.map((post, index) => {
                 return (
                   <Posts
                     key={`post ${post.title}`}
                     title={post.title}
                     message={post.message}
+                    _id={post._id}
                   />
                 );
               })}
@@ -94,16 +102,4 @@ export default function Home(props) {
       </body>
     </main>
   );
-}
-
-export async function getStaticProps(ctx) {
-  const response = await fetch("http://localhost:3002/posts");
-  const data = await response.json();
-
-  return {
-    props: {
-      posts: data.data,
-    },
-    revalidate: 60 * 60,
-  };
 }
