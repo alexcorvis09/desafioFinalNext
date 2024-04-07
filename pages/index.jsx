@@ -40,7 +40,7 @@ export default function Home() {
             </Link>
             <Link
               className="p-3 text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white"
-              href="/"
+              href="/enter/newuser"
             >
               Create Account
             </Link>
