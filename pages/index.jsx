@@ -47,28 +47,34 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <body className=" bg-zinc-100 min-h-fit w-full">
-        <div className="grid grid-cols-3 justify-between p-12">
-          <aside className="w-[240px] h-[10469px]">
+      <body className=" bg-zinc-100 min-h-fit">
+        <div className="grid grid-cols-3 justify-evenly p-2">
+          <aside className="w-2/3 h-fit p-3">
             <div className="p-4 bg-white border-1 border-zinc-100 h-fit rounded-lg text-[15px]">
               <h2 className="font-bold gap-40">
                 DEV Community is a community of 1,357,511 amazing developers
               </h2>
               <p>
-                Were a place where coders share, stay up-to-date and grow their
+                We're a place where coders share, stay up-to-date and grow their
                 careers.
               </p>
               <div className="grid grid-rows-2 p-4">
-                <button className="text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white">
+                <Link
+                  href="/enter/newuser"
+                  className="text-blue-600 border-2 border-blue-600 rounded-lg text-center hover:bg-blue-600 hover:text-white"
+                >
                   Create Account
-                </button>
-                <button className="border-white hover:bg-blue-600/40 hover:border-3 hover: border-blue-600/40 rounded-lg place-content-center">
+                </Link>
+                <Link
+                  href="/enter"
+                  className="border-white hover:bg-blue-600/40 hover:border-3 hover: border-blue-600/40 rounded-lg text-center"
+                >
                   Login
-                </button>
+                </Link>
               </div>
             </div>
             <div className="">
-              <div className="">
+              <div className="p-2">
                 {emojiButtons.map((emojiButton, index) => {
                   return (
                     <SideButton
@@ -83,19 +89,19 @@ export default function Home() {
             </div>
             <div className="p-2 font-bold">Other</div>
           </aside>
-          <div className="flex justify-center">
-            <section>
-              {posts.map((post, index) => {
-                return (
-                  <Posts
-                    key={`post ${post.title}`}
-                    title={post.title}
-                    message={post.message}
-                    _id={post._id}
-                  />
-                );
-              })}
-            </section>
+          <div className="flex flex-col-reverse gap-2 min-w-max p-4">
+            {posts.map((post, index) => {
+              return (
+                <Posts
+                  key={`post ${post.title}`}
+                  title={post.title}
+                  message={post.message}
+                  _id={post._id}
+                  user={post.user}
+                  createdAt={post.createdAt}
+                />
+              );
+            })}
           </div>
           <div className="flex justify-center">Sidebar2</div>
         </div>

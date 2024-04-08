@@ -2,14 +2,12 @@ import Link from "next/link";
 
 export default function Posts(props) {
   return (
-    <section>
+    <section className="w-[450px] rounded-lg bg-white p-8">
+      <p className="text-xs">{props.user}</p>
+      <p className="text-xs">{props.createdAt}</p>
       <Link href={`/posts/${props._id}`}>
-        <h2>{props.title}</h2>
+        <h2 className="font-bold text-xl p-2">{props.title}</h2>
       </Link>
-
-      <div>
-        <p>{props.message}</p>
-      </div>
     </section>
   );
 }
