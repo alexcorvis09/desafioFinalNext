@@ -39,6 +39,7 @@ export default function NewPost() {
             name="title"
             placeholder="New post title here..."
             required
+            className="w-96 h-24 text-2xl"
             onChange={(event) => setTitle(event.target.value)}
             value={title}
           />
@@ -59,11 +60,17 @@ export default function NewPost() {
             name="message"
             placeholder="Write your post content here..."
             required
+            className="h-72 w-1/2 text-2xl font-semibold "
             onChange={(event) => setMessage(event.target.value)}
             value={message}
           />
         </div>
-        <button type="submit">Publish</button>
+        <button
+          type="submit"
+          className="p-2 text-white font-semibold border-2 border-blue-600 rounded-lg bg-blue-600 hover:text-white"
+        >
+          Publish
+        </button>
       </form>
     </section>
   );

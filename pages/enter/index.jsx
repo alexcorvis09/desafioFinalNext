@@ -36,7 +36,7 @@ export default function Login() {
       });
   }
   return (
-    <main>
+    <main className="items-center w-8/12">
       <section>
         <div>
           <Link href="/">
@@ -47,25 +47,35 @@ export default function Login() {
               height={48}
             />
           </Link>
-          <h1>Join the DEV Community</h1>
-          <p>DEV Community is a community of 1,382,651 amazing developers</p>
+          <h1 className="text-2xl font-bold">Join the DEV Community</h1>
+          <p className="text-lg">
+            DEV Community is a community of 1,382,651 amazing developers
+          </p>
         </div>
       </section>
       <section>
-        <div>
-          <p>Continue with Apple</p>
-          <p>Continue with Forem</p>
-          <p>Continue with GitHub</p>
-          <p>Continue with Twitter</p>
+        <div className="gap-96">
+          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
+            <Link href="/">Continue with Apple</Link>
+          </div>
+          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
+            <Link href="/">Continue with Forem</Link>
+          </div>
+          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
+            <Link href="/">Continue with Github</Link>
+          </div>
+          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
+            <Link href="/">Continue with X</Link>
+          </div>
         </div>
-        <div>
-          <div>OR</div>
+        <div className=" items-center">
+          <div className="text-center w-2/3">OR</div>
           <form action="/users/sign_in" onSubmit={handleSubmit}>
             <div>
+              <p className="font-semibold">Username</p>
               <input
                 type="text"
-                placeholder="Username"
-                className="border-2 border-zinc-200 rounded-lg"
+                className="border-2 border-zinc-200 rounded-lg w-2/3"
                 name="username"
                 required
                 onChange={(event) => setUsername(event.target.value)}
@@ -73,22 +83,26 @@ export default function Login() {
               />
             </div>
             <div>
+              <p className="font-semibold">Password</p>
               <input
                 type="password"
-                className="border-2 border-zinc-200 rounded-lg"
+                className="border-2 border-zinc-200 rounded-lg w-2/3"
                 name="password"
                 required
-                placeholder="Password"
                 onChange={(event) => setPassword(event.target.value)}
                 value={password}
               />
             </div>
-            <div>
-              <input type="checkbox" />
-              Remember me
+            <div className="">
+              <input type="checkbox" /> Remember me
+              <Link href="/">Forgot password?</Link>
             </div>
-            <Link href="/">Forgot password?</Link>
-            <button type="submit">Log in</button>
+            <button
+              type="submit"
+              className="text-white border-2 border-blue-600 bg-blue-600 rounded-lg text-center w-2/3"
+            >
+              Log in
+            </button>
             {
               <p
                 className={
@@ -102,17 +116,3 @@ export default function Login() {
     </main>
   );
 }
-
-// export async function getStaticProps(ctx) {
-//   const response = await fetch("http://localhost:3002/users");
-//   const data = await response.json();
-
-//   console.log("users");
-//   return {
-//     props: {
-//       username: data.username,
-//       password: data.password,
-//     },
-//     revalidate: 20,
-//   };
-// }
