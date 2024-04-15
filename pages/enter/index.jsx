@@ -57,20 +57,20 @@ export default function Login() {
       </section>
       <section className="grid grid-rows-4 place-items-center">
         <div className=" grid grid-rows-4 justify-items-center w-2/3 min-h-fit p-2 space-y-2">
-          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
+          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-1/3">
             <Link href="/">Continue with Apple</Link>
           </div>
-          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
+          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-1/3">
             <Link href="/">Continue with Forem</Link>
           </div>
-          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
+          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-1/3">
             <Link href="/">Continue with Github</Link>
           </div>
-          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
+          <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-1/3">
             <Link href="/">Continue with X</Link>
           </div>
         </div>
-        <div className=" justify-items-center p-5 text-center w-2/3">
+        <div className=" justify-items-center p-6 text-center w-1/3">
           <div className="self-center w-full">--------- OR --------</div>
           <form
             className="place-items-center space-y-5"
@@ -84,7 +84,7 @@ export default function Login() {
               </label>
               <input
                 type="text"
-                className="border-2 border-zinc-200 rounded-lg w-1/2"
+                className="border-2 border-zinc-200 rounded-lg w-1/2 h-8"
                 name="username"
                 required
                 onChange={(event) => setUsername(event.target.value)}
@@ -98,7 +98,7 @@ export default function Login() {
               </label>
               <input
                 type="password"
-                className="border-2 border-zinc-200 rounded-lg w-1/2"
+                className="border-2 border-zinc-200 rounded-lg w-1/2 h-8"
                 name="password"
                 required
                 onChange={(event) => setPassword(event.target.value)}
