@@ -112,7 +112,9 @@ export default function Login() {
             }
             <div className="flex justify-center gap-3">
               <input type="checkbox" /> Remember me
-              <Link href="/">Forgot password?</Link>
+              <Link href="/" className="text-blue-600">
+                Forgot password?
+              </Link>
             </div>
             <button
               type="submit"

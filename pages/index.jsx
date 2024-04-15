@@ -24,7 +24,7 @@ export default function Home() {
             <img
               src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
               alt="DEV Community"
-              className="size-16"
+              className="size-20"
             />
           </Link>
           <div>
@@ -77,7 +77,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="w-7/12 border-2 border-red-600 text-[15px]">
+            <div className="w-7/12 text-[15px]">
               <div className="p-4">
                 {emojiButtons.map((emojiButton, index) => {
                   return (
@@ -92,7 +92,7 @@ export default function Home() {
               </div>
             </div>
             <div className="p-4 font-bold">Other</div>
-            <div className="p-4 w-7/12 border-2 border-red-600 text-[15px]">
+            <div className="p-4 w-7/12 text-[15px]">
               {lowerEmojis.map((emojiButton, index) => {
                 return (
                   <SideButton
