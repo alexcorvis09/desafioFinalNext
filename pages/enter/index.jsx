@@ -36,10 +36,10 @@ export default function Login() {
       });
   }
   return (
-    <main className="items-center w-8/12">
-      <section>
-        <div>
-          <Link href="/">
+    <main className="items-center min-w-full place-items-center max-h-fit space-y-2">
+      <section className="flex justify-center">
+        <div className="">
+          <Link href="/" className="flex justify-center">
             <img
               src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
               alt="Dev logo"
@@ -47,14 +47,16 @@ export default function Login() {
               height={48}
             />
           </Link>
-          <h1 className="text-2xl font-bold">Join the DEV Community</h1>
-          <p className="text-lg">
-            DEV Community is a community of 1,382,651 amazing developers
-          </p>
+          <section className="grid grid-rows-2 text-center p-2">
+            <h1 className="text-2xl font-bold">Join the DEV Community</h1>
+            <p className="text-lg">
+              DEV Community is a community of 1,382,651 amazing developers
+            </p>
+          </section>
         </div>
       </section>
-      <section>
-        <div className="gap-96">
+      <section className="grid grid-rows-4 place-items-center">
+        <div className=" grid grid-rows-4 justify-items-center w-2/3 min-h-fit p-8 space-y-2">
           <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
             <Link href="/">Continue with Apple</Link>
           </div>
@@ -68,47 +70,55 @@ export default function Login() {
             <Link href="/">Continue with X</Link>
           </div>
         </div>
-        <div className=" items-center">
-          <div className="text-center w-2/3">OR</div>
-          <form action="/users/sign_in" onSubmit={handleSubmit}>
-            <div>
-              <p className="font-semibold">Username</p>
+        <div className=" justify-items-center p-5 text-center w-2/3">
+          <div className="self-center w-full">--------- OR --------</div>
+          <form
+            className="place-items-center space-y-5"
+            action="/users/sign_in"
+            onSubmit={handleSubmit}
+          >
+            <div className="">
+              <label htmlFor="username" className="flex justify-center gap-1">
+                <p className="font-semibold">Username</p>
+                <span className=" text-red-600">*</span>
+              </label>
               <input
                 type="text"
-                className="border-2 border-zinc-200 rounded-lg w-2/3"
+                className="border-2 border-zinc-200 rounded-lg w-1/2"
                 name="username"
                 required
                 onChange={(event) => setUsername(event.target.value)}
                 value={username}
               />
             </div>
-            <div>
-              <p className="font-semibold">Password</p>
+            <div className="">
+              <label htmlFor="password" className="flex justify-center gap-1">
+                <p className="font-semibold">Password</p>
+                <span className=" text-red-600">*</span>
+              </label>
               <input
                 type="password"
-                className="border-2 border-zinc-200 rounded-lg w-2/3"
+                className="border-2 border-zinc-200 rounded-lg w-1/2"
                 name="password"
                 required
                 onChange={(event) => setPassword(event.target.value)}
                 value={password}
               />
             </div>
-            <div className="">
+            <div className="flex justify-center gap-3">
               <input type="checkbox" /> Remember me
               <Link href="/">Forgot password?</Link>
             </div>
             <button
               type="submit"
-              className="text-white border-2 border-blue-600 bg-blue-600 rounded-lg text-center w-2/3"
+              className="text-white border-2 border-blue-600 bg-blue-600 rounded-lg text-center w-2/12"
             >
               Log in
             </button>
             {
-              <p
-                className={
-                  (clsx({ hidden: !error }, "text-pink-800"), { error })
-                }
-              ></p>
+              <p className={clsx({ hidden: !error }, "text-red-600")}>
+                {error}
+              </p>
             }
           </form>
         </div>

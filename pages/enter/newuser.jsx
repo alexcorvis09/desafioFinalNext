@@ -7,6 +7,7 @@ export default function NewUser() {
   const [first_name, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [last_name, setLast_Name] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
 
@@ -20,6 +21,7 @@ export default function NewUser() {
         username: username,
         email: email,
         password: password,
+        last_name: last_name,
       }),
     })
       .then((response) => response.json())
@@ -47,7 +49,10 @@ export default function NewUser() {
         <p>DEV Community is a community of 1,382,651 amazing developers</p>
         <form action="/" onSubmit={handleSubmit}>
           <div>
-            <p>Name</p>
+            <label htmlFor="last_name" className="flex justify-start gap-1">
+              <p>Name</p>
+              <span className=" text-red-600">*</span>
+            </label>
             <input
               type="text"
               name="first_name"
@@ -58,7 +63,21 @@ export default function NewUser() {
             />
           </div>
           <div>
-            <p>Username</p>
+            <p>Last Name</p>
+            <input
+              type="text"
+              name="last_name"
+              className="border-2 border-zinc-300 rounded-lg"
+              required
+              onChange={(event) => setLast_Name(event.target.value)}
+              value={last_name}
+            />
+          </div>
+          <div>
+            <label htmlFor="username" className="flex justify-start gap-1">
+              <p>Username</p>
+              <span className=" text-red-600">*</span>
+            </label>
             <input
               type="text"
               name="username"
@@ -69,7 +88,10 @@ export default function NewUser() {
             />
           </div>
           <div>
-            <p>Email</p>
+            <label htmlFor="email" className="flex justify-start gap-1">
+              <p>Email</p>
+              <span className=" text-red-600">*</span>
+            </label>
             <input
               type="email"
               name="email"
@@ -80,9 +102,12 @@ export default function NewUser() {
             />
           </div>
           <div>
-            <p>Password</p>
+            <label htmlFor="password" className="flex justify-start gap-1">
+              <p>Password</p>
+              <span className=" text-red-600">*</span>
+            </label>
             <input
-              type="text"
+              type="password"
               name="password"
               className="border-2 border-zinc-300 rounded-lg"
               required
@@ -90,12 +115,14 @@ export default function NewUser() {
               value={password}
             />
           </div>
-          <button
-            type="submit"
-            className="p-2 text-white font-semibold border-2 border-blue-600 rounded-lg bg-blue-600 hover:text-white"
-          >
-            Sign up
-          </button>
+          <div className="space-y-4">
+            <button
+              type="submit"
+              className="p-2 text-white font-semibold border-2 border-blue-600 rounded-lg bg-blue-600 hover:text-white"
+            >
+              Sign up
+            </button>
+          </div>
         </form>
       </section>
     </div>
