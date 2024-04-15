@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { space } from "postcss/lib/list";
 import { useEffect, useState } from "react";
 
 export default function DetailedPost(props) {
@@ -13,14 +14,13 @@ export default function DetailedPost(props) {
       .then((response) => response.json())
       .then((json) => {
         setPost(json);
-        console.log(json);
       })
       .catch((error) => {
         console.log("Error fetching post:", error);
       });
   }, [id]);
   return (
-    <main>
+    <section>
       <header>
         <div className="bg-white flex justify-around items-center h-24 border-2 border-zinc-300 w-full">
           <Link href="/">
@@ -55,13 +55,18 @@ export default function DetailedPost(props) {
         </div>
       </header>
       <div className="p-36 w-2/3 bg-white rounded-xl place-self-center">
+        <img
+          src="https://picsum.photos/750/350"
+          alt={post?.data?.at(0)?.title}
+        />
         <section className="items-center">
           <p className="text-xs">{post?.data?.at(0)?.user}</p>
+          {}
           <p className="text-xs">Posted on {post?.data?.at(0)?.createdAt}</p>
           <p className="text-6xl font-bold">{post?.data?.at(0)?.title}</p>
           <p className="text-xl justify-evenly">{post?.data?.at(0)?.message}</p>
         </section>
       </div>
-    </main>
+    </section>
   );
 }

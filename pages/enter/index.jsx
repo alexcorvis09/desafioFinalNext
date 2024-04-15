@@ -36,9 +36,9 @@ export default function Login() {
       });
   }
   return (
-    <main className="items-center min-w-full place-items-center max-h-fit space-y-2">
+    <main className="items-center min-w-full place-items-center max-h-fit space-y-2 bg[rgb(255_255,_255)]">
       <section className="flex justify-center">
-        <div className="">
+        <div className="p-4">
           <Link href="/" className="flex justify-center">
             <img
               src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
@@ -56,7 +56,7 @@ export default function Login() {
         </div>
       </section>
       <section className="grid grid-rows-4 place-items-center">
-        <div className=" grid grid-rows-4 justify-items-center w-2/3 min-h-fit p-8 space-y-2">
+        <div className=" grid grid-rows-4 justify-items-center w-2/3 min-h-fit p-2 space-y-2">
           <div className="p-4 border-2 border-zinc-300 rounded-xl text-center w-2/3">
             <Link href="/">Continue with Apple</Link>
           </div>
@@ -105,6 +105,11 @@ export default function Login() {
                 value={password}
               />
             </div>
+            {
+              <p className={clsx({ hidden: !error }, "text-red-600")}>
+                {error}
+              </p>
+            }
             <div className="flex justify-center gap-3">
               <input type="checkbox" /> Remember me
               <Link href="/">Forgot password?</Link>
@@ -115,11 +120,6 @@ export default function Login() {
             >
               Log in
             </button>
-            {
-              <p className={clsx({ hidden: !error }, "text-red-600")}>
-                {error}
-              </p>
-            }
           </form>
         </div>
       </section>
