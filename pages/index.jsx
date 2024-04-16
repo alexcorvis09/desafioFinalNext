@@ -5,6 +5,7 @@ import { discussionListLower } from "@/constants/listPostsSide2";
 import { lowerEmojis } from "@/constants/lowerSideList";
 import { emojiButtons } from "@/constants/sideList";
 import SideButton from "@/sideButton";
+import clsx from "clsx";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

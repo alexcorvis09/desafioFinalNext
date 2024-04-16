@@ -54,15 +54,15 @@ export default function DetailedPost(props) {
           </div>
         </div>
       </header>
-      <div className="p-8w-full flex flex-row bg-[rgb(245_245_245)]">
+      <div className="p-8 w-full flex flex-row bg-[rgb(245_245_245)] min-h-screen">
         <aside className="w-1/12 p-10">Reactions</aside>
         <section className="space-y-2 flex flex-col w-2/3 p-3 rounded-3xl bg-white shadow-xl">
           <img
-            src="https://picsum.photos/750/350"
+            src="https://picsum.photos/600/250"
             alt={post?.data?.at(0)?.title}
             className=""
           />
-          <div className="flex border-2 border-purple-600 w-1/2 p-3">
+          <div className="flex w-1/2 p-8">
             <img
               src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png"
               alt="profile picture"
@@ -77,11 +77,18 @@ export default function DetailedPost(props) {
               </p>
             </div>
           </div>
-          <div className="border-2 border-green-500 w-full p-10">
-            <p className="text-6xl font-bold">{post?.data?.at(0)?.title}</p>
-            <p className="text-xl justify-evenly">
-              {post?.data?.at(0)?.message}
+          <div className="w-full p-6">
+            <p className="text-6xl font-extrabold">
+              {post?.data?.at(0)?.title}
             </p>
+            <div className="w-3/4 space-y-10">
+              <p className="text-xl justify-evenly">
+                {post?.data?.at(0)?.message}
+              </p>
+            </div>
+          </div>
+          <div>
+            <p className="p-2">Comments</p>
           </div>
         </section>
         <aside className="3/12 p-10">User information</aside>
